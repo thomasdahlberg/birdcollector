@@ -3,4 +3,13 @@
 
 <h1>Bird List</h1>
 
+{% for bird in birds %}
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{bird.sitename}}</span>
+            <p>Breed: {{bird.breed}}</p>
+        </div>
+    </div>
+{% endfor %}
+
 {% endblock %}
