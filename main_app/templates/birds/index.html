@@ -4,12 +4,14 @@
 <h1>Bird List</h1>
 
 {% for bird in birds %}
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title">{{bird.sitename}}</span>
-            <p>Breed: {{bird.breed}}</p>
+    <a href="{% url 'detail' bird.id %}">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{bird.sitename}}</span>
+                <p>Breed: {{bird.breed}}</p>
+            </div>
         </div>
-    </div>
+    </a>
 {% endfor %}
 
 {% endblock %}
