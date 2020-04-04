@@ -53,6 +53,26 @@
       <h5>No Gifts :(</h5>
       {% endif %}
   </div>
+  <div class="col s6">
+    <h3>Available Gifts</h3>
+    {% if gifts.count %}
+      {% for gift in gifts %}
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title"><strong>{{gift.name}}</strong>: {{gift.description}}</span>
+        </div>
+        <div class="card-action">
+          <form action="{% url 'assoc_gift' bird.id gift.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn">Add</button>
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <h5>No Gifts Available</h5>
+    {% endif %}
+  </div>
 </div>
 <script>
     let dateEl = document.getElementById('id_date');
