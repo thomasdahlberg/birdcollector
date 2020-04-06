@@ -37,6 +37,10 @@ def assoc_gift(request, bird_id, gift_id):
     Bird.objects.get(id=bird_id).gifts.add(gift_id)
     return redirect('detail', bird_id=bird_id)
 
+def rm_gift(request, bird_id, gift_id):
+    Bird.objects.get(id=bird_id).gifts.remove(gift_id)
+    return redirect('detail', bird_id=bird_id)
+
 class BirdCreate(CreateView):
     model = Bird
     fields = '__all__'

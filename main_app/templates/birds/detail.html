@@ -47,6 +47,12 @@
         <div class="card-content">
           <span><strong>{{gift.name}}</strong>: {{gift.description}}</span>
         </div>
+        <div class="card-action">
+          <form action="{% url 'rm_gift' bird.id gift.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn">Remove</button>
+          </form>
+        </div>
       </div>
       {% endfor %}
       {% else %}
