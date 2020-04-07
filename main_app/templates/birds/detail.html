@@ -33,6 +33,12 @@
             {{ feeding_form.as_p }}
             <input type="submit" value="Add Feeding" class="btn">
         </form>
+        <br>
+        {% if bird.fed_for_today %}
+          <div class="card-panel teal-text center-align">The birds at {{ bird.sitename }} have been fed today.</div>
+        {% else %}
+          <div class="card-panel red-text center-align">The birds at {{ bird.sitename }} might be hungry.</div>
+        {% endif %}
         <table class="striped">
           <thead>
             <tr><th>Date</th><th>Food</th></tr>

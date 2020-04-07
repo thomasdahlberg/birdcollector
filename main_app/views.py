@@ -118,7 +118,6 @@ class GiftCreate(LoginRequiredMixin, CreateView):
 class GiftUpdate(LoginRequiredMixin, UpdateView):
     model = Gift
     fields = ['name', 'description']
-    success_url:'/gifts/'
 
 class GiftDelete(LoginRequiredMixin, DeleteView):
     model = Gift

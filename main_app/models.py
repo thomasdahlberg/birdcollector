@@ -16,6 +16,10 @@ class Gift(models.Model):
 
     def __str__(self):
         return f"{self.name}: {self.description}"
+    
+    def get_absolute_url(self):
+        return reverse('gifts_detail', kwargs={ 'pk': self.id })
+
 
 
 class Bird(models.Model):
@@ -33,7 +37,7 @@ class Bird(models.Model):
         return reverse('detail', kwargs={'bird_id': self.id})
 
     def fed_for_today(self):
-        return self.feeding_set.filter(date=date.today()).count >= len(FOODS)
+        return self.feeding_set.filter(date=date.today()).count() >= 1
 
 class Feeding(models.Model):
     date = models.DateField('feeding date')

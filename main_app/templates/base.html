@@ -21,8 +21,11 @@
         <ul class="right">
           <li><a href="{% url 'about' %}">About</a></li>
           {% if user.is_authenticated %}
+            <li><em>Hello, {{ user.username }}!</em></li>
             <li><a href="{% url 'bird_create' %}">Add a Bird Sighting</a></li>
             <li><a href="{% url 'index' %}">View All My Bird Sightings</a></li>
+            <li><a href="{% url 'gifts_index' %}">View Bird Gifts</a></li>
+            <li><a href="{% url 'gifts_create' %}">Add Bird Gift</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
